@@ -1,0 +1,64 @@
+body{
+    background-color:dimgrey;
+}
+
+#container {
+    border:2px solid black;
+    margin-left:25vw;
+    margin-right:25vw;
+    width:400px;
+    height:300px;
+    float: center;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:rgb(46, 110, 167);
+    padding:16px;
+    height:375px;
+    border-radius:8px;
+}
+
+#container > * {
+    display:flex;
+    /*outline:2px solid red;*/
+}
+
+.row {
+    display:flex;
+    height:60px;
+}
+
+.row * {
+    flex:1;
+}
+
+.row button, .row #math{
+    outline:2px solid black;
+}
+#header{
+    text-align:center;
+    color:white;
+    font-size:100px;
+    paint-order: stroke fill;
+    -webkit-text-stroke: 15px black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#math_container{
+    display:flex;
+    overflow:hidden;
+}
+#math {
+    font-size:36px;
+    text-align:right;
+    background-color:white;
+    height:100%;
+    max-width:100%;
+    margin-top:0px;
+    border:2px solid red;
+
+}
+
+#math{
+    flex:1;
+    max-width:100%;
+}
