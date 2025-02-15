@@ -76,6 +76,7 @@
 }
 
 function perform(key, value, array){    
+    alert(`key: ${key}, value: ${value}, array:${array}`)
 
     if(key == "X"){
         array[value] = array[value-1] * array[value+1]
@@ -89,6 +90,13 @@ function perform(key, value, array){
         array[value] = parseInt(array[value-1]) - parseInt(array[value+1])
     } else if (key == "^"){
         array[value] = parseInt(array[value-1]) ** parseInt(array[value+1])
+    } else if (key == "."){
+        array[value] = parseFloat(`${array[value-1]}.${array[value+1]}`)
+
+        if (isNaN(array[value])){
+            array[value] = parseFloat(`0.${array[value+1]}`)
+            alert(array[value])
+        } 
     }
 
     array[value-1] = null;
@@ -101,6 +109,16 @@ function perform(key, value, array){
 
 
 function orderOfOperations(array){
+    for (let i = 0; i < array.length; i++){
+        if("." == array[i]){
+            array = perform(array[i],i, array)
+            i = 0;
+        }
+        if (array.length == 1){
+            break;
+        }
+    }  
+
     //PEMDAS. Multiplication and Division first. Addition and subtraction Last
 
     //First: Do exponents
