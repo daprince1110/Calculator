@@ -75,10 +75,7 @@
 
 }
 
-function perform(key, value, array){
-    alert(`${key}, ${value}`)
-    alert(`array is ${array}`)
-    
+function perform(key, value, array){    
 
     if(key == "X"){
         array[value] = array[value-1] * array[value+1]
@@ -143,6 +140,8 @@ function orderOfOperations(array){
     
     if (array.length > 1){
         return ["Error"]
+    } else if (array == [NaN]){
+        return ['Error. Not a Number. You did something wrong']
     } else {
         return array
     }
@@ -152,8 +151,6 @@ Calculator.prototype.solve = function(equation){
     this.recalculate(equation)
 
     this.array = orderOfOperations(this.array)
-
-    alert(`final answer ${this.array}`)
 
     return this.array
 }
