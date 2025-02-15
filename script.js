@@ -1,3 +1,4 @@
+
 let buttons = document.querySelectorAll('button');
 let box = document.querySelector('#math')
 let fontSize = 36;
@@ -27,16 +28,28 @@ function addEntry(value){
         fontSize -=1;
         box.textContent += value;
     }
+
     box.style.fontSize = `${fontSize}px`
 }
 
+
+let answer = new Calculator(false)
 
 for (let button of buttons){
     button.addEventListener('click', () => {
         let data = button.getAttribute('data')
         if (data == "DEL"){
-            alert("DELETE");
-        } else {
+            if (typeof answer == "object"){
+                box.textContent = answer.deleteLastItem(box.textContent).join('')
+            }
+        } else if (data == "CE"){
+            box.textContent = ''
+            answer.recalculate(box.textContent)
+        } else if (data == "="){
+            box.textContent = answer.solve(box.textContent).join('');
+        }
+        
+        else {
             addEntry(data)
         }
     })
