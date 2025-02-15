@@ -76,8 +76,6 @@
 }
 
 function perform(key, value, array){    
-    alert(`key: ${key}, value: ${value}, array:${array}`)
-
     if(key == "X"){
         array[value] = array[value-1] * array[value+1]
     } else if (key == "/"){
